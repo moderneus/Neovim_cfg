@@ -96,9 +96,9 @@ require("lazy").setup({
         }),
         window = {
 	  completion = {
-            border = "rounded", -- Красивая тонкая рамка
-            max_height = 10,    -- Ограничение высоты в коде
-            max_width = 50,     -- Ограничение ширины (чтобы не на пол-экрана)
+            border = "rounded", 
+            max_height = 10,    
+            max_width = 50,     
             winhighlight = "Normal:CmpNormal,FloatBorder:TelescopeBorder,CursorLine:PmenuSel,Search:None",
           },
         },
