@@ -95,12 +95,13 @@ require("lazy").setup({
           { name = 'path' },
         }),
         window = {
-	  completion = {
+	      completion = {
             border = "rounded", -- Красивая тонкая рамка
             max_height = 10,    -- Ограничение высоты в коде
             max_width = 50,     -- Ограничение ширины (чтобы не на пол-экрана)
             winhighlight = "Normal:CmpNormal,FloatBorder:TelescopeBorder,CursorLine:PmenuSel,Search:None",
           },
+          documentation= cmp.config.disable,
         },
       })
       cmp.setup.cmdline('/', { mapping = cmp.mapping.preset.cmdline(), sources = { { name = 'buffer' } } })
