@@ -24,14 +24,29 @@ vim.opt.rtp:prepend(lazypath)
 vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#3b4252" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#808080" })
-
+-- fsdfs
 require("lazy").setup({
   {
-    'bluz71/vim-moonfly-colors',
+      "olimorris/onedarkpro.nvim",
     priority = 1000,
     config = function()
-        vim.cmd("colorscheme moonfly")
-    end
+      require("onedarkpro").setup {
+        colors = {
+          bg = "#000000", 
+          fg = "#c5c8c9",
+          blue = "#61afef",
+          cyan = "#56b6c2",
+          red = "#ffffff",
+          yellow = "#e5c07b",
+          orange = "#d19a66",
+        },
+        options = {
+          transparency = false,
+          terminal_colors = false,
+        },
+      }
+      vim.cmd("colorscheme onedark_dark")
+    end,
   },
   { 
     'nvim-telescope/telescope.nvim', 
