@@ -19,6 +19,10 @@ vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
 
 vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Quit' })
 
+vim.keymap.set('v', '<TAB>', '>gv', { desc = 'Indent right' })
+
+vim.keymap.set('v', '<S-TAB>', '<gv', { desc = 'Indent left' })
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", lazypath })
