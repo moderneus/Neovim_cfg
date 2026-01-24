@@ -38,28 +38,25 @@ vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#808080" })
 
 require("lazy").setup({
+
   {
-      "olimorris/onedarkpro.nvim",
-    priority = 1000,
-    config = function()
-      require("onedarkpro").setup {
-        colors = {
-          bg = "#000000", 
-          fg = "#c5c8c9",
-          blue = "#61afef",
-          cyan = "#56b6c2",
-          red = "#ffffff",
-          yellow = "#e5c07b",
-          orange = "#d19a66",
-        },
-        options = {
-          transparency = false,
-          terminal_colors = false,
-        },
-      }
-      vim.cmd("colorscheme onedark_dark")
-    end,
+	'bluz71/vim-moonfly-colors',
+	priority=1000,
+	config = function() 
+		vim.cmd("colorscheme moonfly")
+	end	  
   },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {
+	indent = {char = "»"},
+    },
+  },
+
   { 
     'nvim-telescope/telescope.nvim', 
     dependencies = { 'nvim-lua/plenary.nvim' },
@@ -79,6 +76,7 @@ require("lazy").setup({
       vim.keymap.set('n', '<leader>fg', function() builtin.live_grep(minimal_opts) end)
     end
   },
+
   {
     'neovim/nvim-lspconfig',
     config = function()
@@ -92,6 +90,7 @@ require("lazy").setup({
       })
     end
   },
+
   {
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline', 'L3MON4D3/LuaSnip' },
@@ -134,9 +133,11 @@ require("lazy").setup({
       cmp.setup.cmdline(':', { mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } }) })
     end
   },
+
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     config = function() require("nvim-autopairs").setup({}) end
   },
+
 })
